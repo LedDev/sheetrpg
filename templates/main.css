@@ -1,0 +1,9 @@
+@CHARSET "UTF-8";
+.top_right
+{
+	float:right;
+}
+.menu
+{
+	cursor:pointer;
+}
