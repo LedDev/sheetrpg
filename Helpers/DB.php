@@ -22,11 +22,15 @@ class DB
 		}
 	}
 	
-	public function getValues($sTable, $sWhat, $mValue, $sColumns)
+	public function getValues($sTable, $sWhat = '', $mValue = '', $sColumns)
 	{
 		$oMysql = new mysqli($this->sHost, $this->sLogin,$this->sPassword,$this->sDatabase);
 		$asColumns = explode(',', $sColumns);
-		$sSQLQuery = 'SELECT ' . $sColumns . ' FROM '.$sTable.' where ' . $sWhat . ' = ' . $mValue;
+		$sSQLQuery = 'SELECT ' . $sColumns . ' FROM '.$sTable;
+		if ($sWhat != '')
+		{
+			$sSQLQuery .= ' where ' . $sWhat . ' = ' . $mValue;
+		}
 		$oResult = $oMysql->query($sSQLQuery);
 		
 		$aoResults = array();

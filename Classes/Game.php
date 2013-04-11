@@ -12,10 +12,14 @@ class Game extends AbstractClass
 		return 'Id,Name,TypeId,UserId';
 	}
 	
-	public function getById()
+	/**
+	 * Return an array of the objects
+	 * @param integer $iId
+	 */
+	public function getByUserId($iId)
 	{
-		mysqli_connect('localhost','root','J0SE_G','sheetrpg');
-		return $oSheet;
+		$db = new DB();
+		return $db->getValues('game','UserId', $iId, $this->getColumns());
 	}
 	
 	public function getId()
