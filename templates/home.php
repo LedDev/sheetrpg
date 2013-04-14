@@ -13,6 +13,13 @@ for (i in elems)
     }
 }
 
+function changeSheetTypeId()
+{
+	var e = document.getElementById("sheetTypeId");
+	var value = e.options[e.selectedIndex].id;
+	document.getElementById("typeId").value = value;
+}
+
 function changeContent(content)
 {
 	ReplaceContentInContainer('menu', 'black');
@@ -26,6 +33,12 @@ function changeContent(content)
 		case 'listgame':
 			document.getElementById("content").innerHTML='<?php include 'home_listgame.php';?>';
 			break;
+		case 'newsheet':
+			document.getElementById("content").innerHTML='<?php include 'home_newsheet.php';?>';
+			break;
+		case 'listsheet':
+			document.getElementById("content").innerHTML='<?php include 'home_listsheet.php';?>';
+			break;
 		default:
 			break;
 	}
@@ -37,7 +50,9 @@ function changeContent(content)
 	<div id="menu" style="width:15%;float:left">
 		<span id="menu_home" class="menu" onclick="javascrpit:changeContent('home')">Home</span><br>
 		<span id="menu_newgame" class="menu" onclick="javascrpit:changeContent('newgame')">Create a game</span><br>
-		<span id="menu_listgame" class="menu" onclick="javascrpit:changeContent('listgame')">Games list</span>
+		<span id="menu_listgame" class="menu" onclick="javascrpit:changeContent('listgame')">Games list</span><br>
+		<span id="menu_newsheet" class="menu" onclick="javascrpit:changeContent('newsheet')">Create a sheet</span><br>
+		<span id="menu_listsheet" class="menu" onclick="javascrpit:changeContent('listsheet')">Sheets list</span>
 	</div>
 	<div id="content" style="background-color:red;width:85%;height:400px;float:left;">
 		<?php 
@@ -47,6 +62,12 @@ function changeContent(content)
 			{
 				case 'listgame':
 					include 'home_listgame.php';
+					break;
+				case 'listsheet':
+					include 'home_listsheet.php';
+					break;
+				default:
+					include 'home_home.php';
 					break;
 			}
 		}

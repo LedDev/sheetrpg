@@ -2,11 +2,18 @@
 
 class User extends AbstractClass
 {
-	private $iId;
-	private $sName;
-	private $sLogin;
-	private $sPassword;
+	private $iId = 0;
+	private $sName = '';
+	private $sLogin= '';
+	private $sPassword = '';
 
+	public function __construct($iId = '')
+	{
+		if ($iId != ''){
+			return $this->getById($iId);
+		}
+	}
+	
 	public function getColumns()
 	{
 		return 'Id,Name,Login,Password';

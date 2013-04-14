@@ -6,15 +6,35 @@ class Sheet
 	private $iTypeId;
 	private $iGameId;
 	
-	private function getColumns()
+	public function getColumns()
 	{
 		return 'Id,Name,TypeId,GameId';
 	}
 
 	public function getById($iId)
 	{
-		$aoResults = DB::getValues('sheet','Id', $iId, $this->getColumns());
+		$db = new DB();
+		$aoResults = $db->getValues('sheet','Id', $iId, $this->getColumns());
 		return $aoResults[0];
+	}
+	
+	public function getByUserId($iUserId)
+	{
+		$oGame = new Game();
+		$gamelist = $oGame->getByUserId($iUserId);
+		$aoResults = array();
+		foreach ($gamelist as $game){
+			if ($game != null)
+				$aoResults = array_merge($aoResults,$this->getByGameId($game->getId()));
+		}
+		return $aoResults;
+	}
+	
+	public function getByGameId($iGameId)
+	{
+		$db = new DB();
+		$aoResults = $db->getValues('sheet','GameId', $iGameId, $this->getColumns());
+		return $aoResults;
 	}
 	
 	public function getId()

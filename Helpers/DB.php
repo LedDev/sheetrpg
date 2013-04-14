@@ -83,6 +83,14 @@ NULL ';
 		$oResult = $oMysql->query($sSQL);
 		return $oResult;
 	}
+
+	public function delete($sTable, $oWhat)
+	{
+		$oMysql = new mysqli($this->sHost, $this->sLogin,$this->sPassword,$this->sDatabase);
+		$sSql = 'DELETE FROM ' . $sTable . ' WHERE Id = '.$oWhat->getId();
+		$bReturn = $oMysql->query($sSql);
+		return $bReturn;
+	}
 	
 	private function checkEmpty($aoResults)
 	{
