@@ -3,7 +3,7 @@ class DB
 {
 	private $sHost = 'localhost';
 	private $sLogin = 'root';
-	private $sPassword = 'J0SE_G';
+	private $sPassword = '****';
 	private $sDatabase = 'sheetrpg';
 	
 	public function getObject($sTable)
