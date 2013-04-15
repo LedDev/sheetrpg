@@ -66,6 +66,12 @@ function changeContent(content)
 				case 'listsheet':
 					include 'home_listsheet.php';
 					break;
+				case 'newgame':
+					include 'home_newgame.php';
+					break;
+				case 'newsheet':
+					include 'home_newsheet.php';
+					break;
 				default:
 					include 'home_home.php';
 					break;

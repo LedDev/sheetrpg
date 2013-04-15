@@ -12,13 +12,6 @@ class Game extends AbstractClass
 		return 'Id,Name,TypeId,UserId';
 	}
 	
-	public function __construct($iId = '')
-	{
-		if ($iId != ''){
-			return $this->getById($iId);
-		}
-	}
-	
 	public function getById($iId)
 	{
 		$db = new DB();

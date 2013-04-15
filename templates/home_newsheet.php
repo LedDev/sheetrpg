@@ -5,7 +5,7 @@ $listGame = $oGameModel->getByUserId($_SESSION['loged_id']);
 $return = '<p>Create your new sheet</p>'.
 '<form action="index.php?return=listsheet" method="post">'.
 '	<div>Name : </div><input type="text" title="Name" name="Name"/><br>'.
-'	<select id="sheetTypeId" name="GameId" onchange="changeSheetTypeId()">';
+'	<div>Game : </div><select id="sheetTypeId" name="GameId" onchange="changeSheetTypeId()">';
 $typeId = 0;
 foreach ($listGame as $key => $game)
 {

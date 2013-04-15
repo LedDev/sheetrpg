@@ -16,4 +16,10 @@ include $sC.'User.php';
  *  Helpers
  */
 include $sH.'DB.php';
+
+function isSelected($test1, $test2)
+{
+	if ($test1 == $test2) return 'selected="selected"';
+	else return '';
+}
 ?>
